@@ -62,14 +62,78 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 
 app.get('/', function(req, res){
-  res.render('index.mustache');
-});
-
-app.get('/bucketlist', function(req, res){
   res.render('bucketlist.mustache');
 });
 
+app.get('/mybucketlist', function(req, res){
+  res.render('mybucketlist.mustache');
+});
 
+app.get('/all', function(req, res){
+  
+  models.stadiums.findAll({
+    
+
+  }).then(stadiums => { 
+     res.render('all.mustache', {stadiums})
+  })
+})
+
+app.get('/nfl', function(req, res){
+  
+  models.stadiums.findAll({
+    where: {
+      type: "Professional",
+      sports: "football"
+    }
+
+  }).then(stadiums => { 
+     res.render('nfl.mustache', {stadiums})
+  })
+})
+
+app.get('/college', function(req, res){
+  models.stadiums.findAll({
+    where: {
+      type: "College"
+    }
+  }).then(stadiums => {
+    res.render('college.mustache', {stadiums})
+  })
+})
+
+app.get('/mlb', function (req, res) {
+  models.stadiums.findAll({
+    where: {
+      type: "Professional",
+      sports: "baseball"
+    }
+  }).then(stadiums => {
+    res.render('mlb.mustache', {stadiums})
+  })
+})
+
+app.get('/nba', function(req, res){
+  models.stadiums.findAll({
+    where: {
+      type: "Professional",
+      sports: "basketball"
+    }
+  }).then(stadiums =>{
+    res.render('nba.mustache', {stadiums})
+  })
+})
+
+app.get('/nhl', function(req, res){
+  models.stadiums.findAll({
+    where: {
+      type: "Professional",
+      sports: "hockey"
+    }
+  }).then(stadiums =>{
+    res.render('nhl.mustache', {stadiums})
+  })
+})
 
 passport.serializeUser((user,done)=> {
   done(null, user.id);

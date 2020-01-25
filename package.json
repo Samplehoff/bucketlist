@@ -1,7 +1,7 @@
 {
   "name": "bucketlist",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ever wanted to visit different stadiums around the country? Have a favorite team that you do not live near? Just love Sports and the history of stadiums? Love live sporting events? This app is for you! Here you can create your Bucketlist of Stadiums you plan on visiting. Add stadiums that you really want to visit so you can plan your next adventure!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,21 +17,24 @@
   },
   "homepage": "https://github.com/Samplehoff/bucketlist#readme",
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-router": "0.0.1",
     "express-session": "^1.17.0",
+    "keys": "^0.1.2",
     "mustache-express": "^1.3.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "pbkdf2": "^3.0.17",
-    "pg": "^7.17.0",
+    "pg": "^7.17.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.1"
-  }
+  },
+  "devDependencies": {}
 }
