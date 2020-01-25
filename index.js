@@ -62,11 +62,11 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 
 app.get('/', function(req, res){
-  res.render('index.mustache');
+  res.render('bucketlist.mustache');
 });
 
-app.get('/bucketlist', function(req, res){
-  res.render('bucketlist.mustache');
+app.get('/mybucketlist', function(req, res){
+  res.render('mybucketlist.mustache');
 });
 
 
