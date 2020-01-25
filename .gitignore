@@ -1,4 +1,4 @@
 node_modules
 config/keys.js
 .env
-/public/.DS_Store
+public/.DS_Store
