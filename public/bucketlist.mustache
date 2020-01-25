@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -33,12 +33,9 @@
                     aria-haspopup="true" aria-expanded="false">Sports
                   </a>
                   <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                    <a class="dropdown-item" href="/nfl">NFL</a>
-                    <a class="dropdown-item" href="/mlb">MLB</a>
-                    <a class="dropdown-item" href="/nba">NBA</a>
-                    <a class="dropdown-item" href="/nhl">NHL</a>
-                    <a class="dropdown-item" href="/college">Collegiate</a>
-                    <a class="dropdown-item" href="/all">All</a>
+                    <a class="dropdown-item" href="/professional">Professional</a>
+                    <a class="dropdown-item" href="#">Collegiate</a>
+                    <a class="dropdown-item" href="#">All</a>
                   </div>
                 </li>
               </ul>
@@ -92,7 +89,7 @@
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a"><a href = "/">Sign in</a></button>
         </div>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
           with:</p>
@@ -103,7 +100,7 @@
           Twitter-->
           <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button> -->
           <!--Google +-->
-          <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
+          <button type="button" class="btn btn-white btn-rounded z-depth-1a"><a href = "/auth/google"><i class="fab fa-google-plus-g"></i></a></button>
         </div>
       </div>
       <!--Footer-->
@@ -120,15 +117,12 @@
 
 
 <!-----------MODAL----------->
-
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="/sign-up" method="post">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -136,23 +130,26 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="string" id="orangeForm-name" class="form-control validate" name="userName">
+          <input type="text" id="orangeForm-name" class="form-control validate">
           <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
         </div>
-        
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+        </div>
 
         <div class="md-form mb-4">
           <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate" name="password">
+          <input type="password" id="orangeForm-pass" class="form-control validate">
           <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
         </div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-deep-orange"><a href = "/signup">Sign up</a></button>
         
-        <input class="btn btn-deep-orange" type="submit" value="Sign-up"/>
       </div>
-      </form>
     </div>
   </div>
 </div>
@@ -230,8 +227,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="pages.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
   </body>
 </html>
