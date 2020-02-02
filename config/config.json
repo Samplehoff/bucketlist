@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "yzresadd",
-    "password": "rqXg6rVjfc7dhJIRrDJipO3p0pknOXla",
-    "database": "yzresadd",
+    "username": "zksbcpyf",
+    "password": "WRND-WpZlKWV539BWgThL3FWPL6m-6p7",
+    "database": "zksbcpyf",
     "host": "otto.db.elephantsql.com",
     "dialect": "postgres",
     "operatorsAliases": false
@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "postgres",
-    "password": null,
-    "database": "bucketlist",
-    "host": "localhost",
+    "username": "zksbcpyf",
+    "password": "WRND-WpZlKWV539BWgThL3FWPL6m-6p7",
+    "database": "zksbcpyf",
+    "host": "otto.db.elephantsql.com",
     "dialect": "postgres",
     "operatorsAliases": false
   }

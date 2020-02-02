@@ -32,6 +32,7 @@ passport.use(
                 userName: profile.displayName,
                 password: profile.id
             }).then((newUser)=>{
+                
                 console.log(newUser)
                 done(null, newUser);
             });
