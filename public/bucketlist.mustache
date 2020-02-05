@@ -232,6 +232,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
+    <div id="card"
+      <div class="flip-card">
+          <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  Pick a sport
+                  Scroll over this picture
+                  <img style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <h1>Get The info about the satdium</h1>
+                <p>If you like the Stadium</p>
+                <p>Click the Bucketlist Button </p>
+                <p>To save to your Bucketlist</p>
+                <form action="/mybucketlist" method="post">
+                    <button type="button" class="btn btn-primary">Bucketlist</button>
+                    <input type="hidden" value="{{name}}" name="Stadium" />
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>  
+
 
   </body>
 </html>

@@ -179,7 +179,7 @@ app.post('/signup', function (req, response) {
 });
 
 app.get('/login', function(req, res) {
-  res.render('profile')
+  res.render('mybucketlist.mustache')
 });
 
 passport.serializeUser((user,done)=> {
@@ -226,11 +226,11 @@ passport.use(new LocalStrategy(
 app.post('/',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/login');
+    res.redirect('/mybucketlist');
   });
 
 app.get('/signup', function(req, res) {
-  res.redirect('login')
+  res.redirect('/mybucketlist')
 });
 
 app.post('/signup', function (req, response) {
@@ -238,7 +238,7 @@ app.post('/signup', function (req, response) {
   models.user.create({ username: req.body.username, password: encryptionPassword(req.body.password)})
     .then(function (user) {
       console.log("Signup working")
-      response.redirect('/login');
+      response.redirect('/mybucketlist');
     });
 });
 
