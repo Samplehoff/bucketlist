@@ -242,9 +242,7 @@ app.post('/signup', function (req, response) {
     });
 });
 
-app.get('/login', function(req, res) {
-  res.render('profile')
-});
+
 
 
 
