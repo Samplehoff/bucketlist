@@ -85,8 +85,11 @@ module.exports = app;
 
 
 
-app.get('/mybucketlist', function(req, res){
-  res.render('mybucketlist.mustache');
+app.get('/sign-in', function (req, res){
+  res.redirect('mybucketlist.mustache')
+});
+
+
 
 
 
@@ -226,7 +229,7 @@ passport.use(new LocalStrategy(
 app.post('/',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/mybucketlist');
+    res.redirect('/');
   });
 
 app.get('/signup', function(req, res) {
@@ -273,4 +276,4 @@ app.post("/mybucketlist", function (req, res){
     .then(function (bucketlist) {
       res.redirect('mybucketlist.mustache')
     })
-})});
+});

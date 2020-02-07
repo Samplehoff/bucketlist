@@ -23,6 +23,7 @@ passport.use(
       //CHECK IF USER ALREADY EXISTS IN DB
     models.user.findOne({ where : {password: profile.id}}).then((currentUser) => {
         if(currentUser){
+            
             console.log('user is ' + currentUser);
             // done(null, currentUser);
             done(null, currentUser);
