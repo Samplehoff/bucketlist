@@ -80,20 +80,23 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email1" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-        </div>
+        <form action="/sign-in" method="post">
+          <div class="md-form mb-5">
+            <input type="string" id="orangeForm-name" class="form-control validate" name="userName">
+            <label data-error="wrong" data-success="right" for="Form-email1">Your username</label>
+          </div>
 
-        <div class="md-form pb-3">
-          <input type="password" id="Form-email1" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-          <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="" class="blue-text ml-1 close-modal" data-toggle="modal" data-target="#pwdModal">Password?</a></p>
-        </div>
+          <div class="md-form pb-3">
+            <input type="password" id="Form-email1" class="form-control validate" name="password">
+            <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+            <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="" class="blue-text ml-1 close-modal" data-toggle="modal" data-target="#pwdModal">Password?</a></p>
+          </div>
 
-        <div class="text-center mb-3">
-          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-        </div>
+          <div class="text-center mb-3">
+            <input class="btn btn-deep-orange" type="submit" value="Sign-in"/>
+            
+          </div>
+        </form>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
           with:</p>
 
@@ -103,7 +106,7 @@
           Twitter-->
           <!-- <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button> -->
           <!--Google +-->
-          <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
+          <button type="button" class="btn btn-white btn-rounded z-depth-1a"><a href="/auth/google"><i class="fab fa-google-plus-g"></i></button>
         </div>
       </div>
       <!--Footer-->
@@ -120,12 +123,15 @@
 
 
 <!-----------MODAL----------->
+
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <form action="/sign-up" method="post">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -133,25 +139,23 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
+          <input type="string" id="orangeForm-name" class="form-control validate" name="userName">
           <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
         </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-        </div>
+        
 
         <div class="md-form mb-4">
           <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
+          <input type="password" id="orangeForm-pass" class="form-control validate" name="password">
           <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
         </div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-deep-orange">Sign up</button>
+        
+        <input class="btn btn-deep-orange" type="submit" value="Sign-up"/>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -230,7 +234,29 @@
     <script src="pages.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-   
+
+    <h1 id="info">Scroll over Example picture</h1>
+
+    <div id="card"
+      <div class="flip-card">
+          <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="video/example.png" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back">
+                <h1>Stadium Info</h1>
+                <p>If you like the Stadium</p>
+                <p>Click the Bucketlist Button </p>
+                <p>To save to your Bucketlist</p>
+                <form action="/mybucketlist" method="post">
+                    <button type="button" class="btn btn-primary">Bucketlist</button>
+                    <input type="hidden" value="{{name}}" name="Stadium" />
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>  
+
 
   </body>
 </html>

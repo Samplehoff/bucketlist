@@ -80,20 +80,23 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email1" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-        </div>
+        <form action="/sign-in" method="post">
+          <div class="md-form mb-5">
+            <input type="string" id="orangeForm-name" class="form-control validate" name="userName">
+            <label data-error="wrong" data-success="right" for="Form-email1">Your username</label>
+          </div>
 
-        <div class="md-form pb-3">
-          <input type="password" id="Form-email1" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-          <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="" class="blue-text ml-1 close-modal" data-toggle="modal" data-target="#pwdModal">Password?</a></p>
-        </div>
+          <div class="md-form pb-3">
+            <input type="password" id="Form-email1" class="form-control validate" name="password">
+            <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+            <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="" class="blue-text ml-1 close-modal" data-toggle="modal" data-target="#pwdModal">Password?</a></p>
+          </div>
 
-        <div class="text-center mb-3">
-          <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-        </div>
+          <div class="text-center mb-3">
+            <input class="btn btn-deep-orange" type="submit" value="Sign-in"/>
+            
+          </div>
+        </form>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
           with:</p>
 

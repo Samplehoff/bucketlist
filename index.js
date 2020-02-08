@@ -85,9 +85,9 @@ module.exports = app;
 
 
 
-app.get('/sign-in', function (req, res){
-  res.redirect('mybucketlist.mustache')
-});
+app.get('/mybucketlist', function(req, res){
+  res.render('mybucketlist.mustache')
+})
 
 
 
@@ -162,14 +162,14 @@ app.get('/nhl', function(req, res){
 
 //LOCAL SERVER//
 
-app.post('/',
+app.post('/sign-in',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/login');
+    res.redirect('/mybucketlist');
   });
 
 app.get('/signup', function(req, res) {
-  res.redirect('/login')
+  res.redirect('/')
 });
 
 app.post('/signup', function (req, response) {
@@ -177,12 +177,12 @@ app.post('/signup', function (req, response) {
   models.user.create({ username: req.body.username, password: encryptionPassword(req.body.password)})
     .then(function (user) {
       console.log("Signup working")
-      response.redirect('/login');
+      response.redirect('/');
     });
 });
 
-app.get('/login', function(req, res) {
-  res.render('mybucketlist.mustache')
+app.get('/', function(req, res) {
+  res.render('bucketlist.mustache')
 });
 
 passport.serializeUser((user,done)=> {
@@ -229,14 +229,14 @@ passport.use(new LocalStrategy(
 app.post('/',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('mybucketlist.mustache');
   });
 
-app.get('/signup', function(req, res) {
+app.get('/sign-up', function(req, res) {
   res.redirect('/mybucketlist')
 });
 
-app.post('/signup', function (req, response) {
+app.post('/sign-up', function (req, response) {
   console.log("Line 115 working")
   models.user.create({ username: req.body.username, password: encryptionPassword(req.body.password)})
     .then(function (user) {

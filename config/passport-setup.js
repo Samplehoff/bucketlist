@@ -19,11 +19,12 @@ passport.use(
       callbackURL:'/auth/google/redirect',
       clientID: keys.google.clientID,
       clientSecret: keys.google.clientSecret
-    }, (accessToken, refreshToken, profile, done) => {
+    }, (accessToken, refreshToken, profile, res, done) => {
       //CHECK IF USER ALREADY EXISTS IN DB
     models.user.findOne({ where : {password: profile.id}}).then((currentUser) => {
         if(currentUser){
-            
+            res.redirect('/mybucketlist')
+
             console.log('user is ' + currentUser);
             // done(null, currentUser);
             done(null, currentUser);
@@ -33,7 +34,7 @@ passport.use(
                 userName: profile.displayName,
                 password: profile.id
             }).then((newUser)=>{
-                
+                res.redirect('/mybucketlist')
                 console.log(newUser)
                 done(null, newUser);
             });

@@ -4,7 +4,7 @@ const passport = require('passport');
 
 //auth login
 router.get('/login', (req, res)=>{
-    res.render('login.mustache');
+    res.render('mybucketlist.mustache');
 });
 
 //auth logout
@@ -22,7 +22,7 @@ router.get('/google', passport.authenticate('google',{
 router.get('/google/redirect', passport.authenticate('google'), (req, res)=>{
     // res.send(req.user)
     console.log("recieved after redirect")
-    res.redirect('/profile')
+    res.redirect('mybucketlist.mustache')
 });
 //change to a profile page
 
