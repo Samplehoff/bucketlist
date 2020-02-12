@@ -43,7 +43,15 @@
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item dropdown">
+
+                <li class="nav-item">
+
+                  {{#users}}
+                  <span class="navbar-text">
+                    {{userName}}
+                  </span>
+                  {{/users}}
+                {{! <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
@@ -54,6 +62,7 @@
                     <a href="" class="dropdown-item btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">Sign In</a>
                     <a href="" class="dropdown-item btn btn-default btn-rounded" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
                   </div>
+                </li> }}
                 </li>
               </ul>
             </div>
@@ -61,7 +70,7 @@
   <!--/.Navbar -->
   </head>
   <body>
-<!---------Modal Code ----------->
+<!---------Modal Code Sign-In----------->
 
 
 <!-- Modal -->
@@ -122,7 +131,7 @@
 
 
 
-<!-----------MODAL----------->
+<!-----------MODAL Sign-Up----------->
 
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
@@ -236,26 +245,24 @@
 
 
     <h1 id="info">Scroll over Example picture</h1>
-
+    {{#mybucketlist}}
     <div id="card"
       <div class="flip-card">
           <div class="flip-card-inner">
               <div class="flip-card-front">
-                  <img src="video/example.png" style="width:300px;height:300px;">
+                  <img src={{}} style="width:300px;height:300px;">
               </div>
               <div class="flip-card-back">
                 <h1>Stadium Info</h1>
                 <p>If you like the Stadium</p>
                 <p>Click the Bucketlist Button </p>
                 <p>To save to your Bucketlist</p>
-                <form action="/mybucketlist" method="post">
-                    <button type="button" class="btn btn-primary">Bucketlist</button>
-                    <input type="hidden" value="{{name}}" name="Stadium" />
-                </form>
+                
               </div>
           </div>
       </div>
-    </div>  
+    </div> 
+    {{/mybucketlist}} 
 
 
   </body>

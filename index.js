@@ -79,6 +79,15 @@ app.listen(process.env.PORT, function () {
 
 module.exports = app;
 
+app.use(function(request, response, next) {
+  if (request.session.user) {
+      next();
+  } else if (request.path == '/') {
+      next();
+  } else {
+      response.redirect('/mybucketlist');
+  }
+});
 
 //SETUP ROUTES
 
@@ -162,36 +171,46 @@ app.get('/nhl', function(req, res){
 
 //LOCAL SERVER//
 
-app.post('/sign-in',
+app.post('/',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
     res.redirect('/mybucketlist');
   });
 
-app.get('/signup', function(req, res) {
-  res.redirect('/')
-});
+// // app.get('/signup', function(req, res) {
+// //   res.redirect('/')
+// // });
 
-app.post('/signup', function (req, response) {
-  console.log("Line 115 working")
-  models.user.create({ username: req.body.username, password: encryptionPassword(req.body.password)})
-    .then(function (user) {
-      console.log("Signup working")
-      response.redirect('/');
-    });
-});
+// // app.post('/signup', function (req, response) {
+// //   console.log("Line 115 working")
+// //   models.user.create({ userName: req.body.userName, password: encryptionPassword(req.body.password)})
+// //     .then(function (user) {
+// //       console.log("Signup working")
+// //       response.redirect('/');
+// //     });
+// });
 
 app.get('/', function(req, res) {
   res.render('bucketlist.mustache')
 });
 
+app.get('/sign-in', function(req, res){
+  if(req.isAuthenticated()){
+    res.redirect('mybucketlist.mustache');
+  }else {
+    res.send("not authorized")
+  }
+  
+  res.render('mybucketlist.mustache')
+})
+
 passport.serializeUser((user,done)=> {
-  done(null, user.id);
+  done(null, user.userName);
 });
 
 
-passport.deserializeUser((id, done)=>{
-  models.user.findOne({where: {id: id}}).then((user) => {
+passport.deserializeUser((userName, done)=>{
+  models.user.findOne({where: {userName: userName}}).then((user) => {
       done(null, user)
   })
 });
@@ -200,10 +219,10 @@ passport.deserializeUser((id, done)=>{
 const LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(
-  function (username, password, done) {
+  function (userName, password, done) {
     models.user.findOne({
       where: {
-        username: username
+        userName: userName
       }
     }).then(function (user) {
       if (!user) {
@@ -215,6 +234,7 @@ passport.use(new LocalStrategy(
         console.log("Incorrect Password")
         return done(null, false);
       }
+
       console.log("logged in")
       return done(null, user);
     }).catch(function (err) {
@@ -236,11 +256,14 @@ app.get('/sign-up', function(req, res) {
   res.redirect('/mybucketlist')
 });
 
+
+
 app.post('/sign-up', function (req, response) {
   console.log("Line 115 working")
-  models.user.create({ username: req.body.username, password: encryptionPassword(req.body.password)})
+  models.user.create({ userName: req.body.userName, password: encryptionPassword(req.body.password)})
     .then(function (user) {
       console.log("Signup working")
+
       response.redirect('/mybucketlist');
     });
 });
@@ -252,13 +275,13 @@ app.post('/sign-up', function (req, response) {
 //LOCAL PASSPORT
 
 
-app.post("/sign-up", function (req, response) {
-   models.user.create({ userName: req.body.userName, password: encryptionPassword(req.body.password)})
-    .then(function (user) {
-      response.redirect('/');
+// app.post("/sign-up", function (req, response) {
+//    models.user.create({ userName: req.body.userName, password: encryptionPassword(req.body.password)})
+//     .then(function (user) {
+//       response.redirect('/mybucketlist');
       
-    });
-});
+//     });
+// });
 
 
 // app.post("/signup", function (req, res){
