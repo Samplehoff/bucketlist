@@ -85,7 +85,7 @@ app.use(function(request, response, next) {
   } else if (request.path == '/') {
       next();
   } else {
-      response.redirect('/mybucketlist');
+      response.redirect('mybucketlist.mustache');
   }
 });
 
@@ -94,12 +94,18 @@ app.use(function(request, response, next) {
 
 
 
+
+
+
 app.get('/mybucketlist', function(req, res){
-  res.render('mybucketlist.mustache')
+  if(req.isAuthenticated()){
+    res.render('mybucketlist.mustache');
+  }else {
+    res.send("not authorized")
+  }
+  
+  
 })
-
-
-
 
 
 
@@ -201,8 +207,9 @@ app.get('/sign-in', function(req, res){
     res.send("not authorized")
   }
   
-  res.render('mybucketlist.mustache')
+  
 })
+
 
 passport.serializeUser((user,done)=> {
   done(null, user.userName);
@@ -249,11 +256,11 @@ passport.use(new LocalStrategy(
 app.post('/',
   passport.authenticate('local', { failureRedirect: '/error' }),
   function(req, res) {
-    res.redirect('mybucketlist.mustache');
+    res.redirect('/mybucketlist');
   });
 
 app.get('/sign-up', function(req, res) {
-  res.redirect('/mybucketlist')
+  res.render('/mybucketlist')
 });
 
 
